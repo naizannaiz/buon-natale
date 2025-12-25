@@ -30,7 +30,13 @@ const Gallery = () => {
                         >
                             <div className="gallery-img-container">
                                 {/* Note: HEIC images might need conversion, but we reference them here as requested */}
-                                <img src={img.url} alt={img.name} className="gallery-img" />
+                                <img
+                                    src={img.url}
+                                    alt={img.name}
+                                    className="gallery-img"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                                 <div className="gallery-overlay">
                                     <span>{img.name}</span>
                                 </div>

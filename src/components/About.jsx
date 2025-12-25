@@ -13,7 +13,13 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <img src="/images/image.png" alt="Buon Natale Celebration" className="about-img" />
+                        <img
+                            src="/images/image.png"
+                            alt="Buon Natale Celebration"
+                            className="about-img"
+                            loading="lazy"
+                            decoding="async"
+                        />
                         <div className="experience-badge">
                             <span>ESTD 2013</span>
                         </div>
