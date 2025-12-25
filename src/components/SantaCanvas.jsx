@@ -1,6 +1,6 @@
 import { Suspense, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Environment, ContactShadows, Center } from '@react-three/drei'
+import { OrbitControls, useGLTF, Environment, ContactShadows, Center, AdaptiveDpr, AdaptiveEvents } from '@react-three/drei'
 import * as THREE from 'three'
 
 function Model({ url }) {
@@ -28,6 +28,14 @@ const SantaCanvas = () => {
         <Canvas
             camera={{ position: [0, 0, 7], fov: 45 }}
             shadows
+            dpr={[1, 2]} // Limit pixel density for performance
+            performance={{ min: 0.5 }} // Allow scaling down quality if FPS drops
+            gl={{
+                antialias: true,
+                powerPreference: "high-performance",
+                alpha: true,
+                preserveDrawingBuffer: false
+            }}
         >
             <ambientLight intensity={0.7} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} castShadow />
@@ -40,11 +48,16 @@ const SantaCanvas = () => {
                 <Environment preset="city" />
                 <ContactShadows
                     position={[0, -2.5, 0]}
-                    opacity={0.5}
-                    scale={20}
-                    blur={2.5}
+                    opacity={0.4}
+                    scale={15}
+                    blur={2}
                     far={4.5}
+                    resolution={256} // Lower resolution for better performance
                 />
+
+                {/* Adaptive components to manage resources */}
+                <AdaptiveDpr pixelated />
+                <AdaptiveEvents />
             </Suspense>
 
             <OrbitControls
@@ -52,6 +65,7 @@ const SantaCanvas = () => {
                 enableZoom={false}
                 minPolarAngle={Math.PI / 3}
                 maxPolarAngle={Math.PI / 1.8}
+                makeDefault
             />
         </Canvas>
     )

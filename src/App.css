@@ -5,6 +5,8 @@
 .santa-viewer-section {
     padding: 8rem 0;
     background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+    content-visibility: auto;
+    contain-intrinsic-size: 0 800px;
 }
 
 .glass-card {
