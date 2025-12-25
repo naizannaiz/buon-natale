@@ -1,0 +1,97 @@
+:root {
+  --primary: #c41e3a;
+  --secondary: #228b22;
+  --accent: #ffd700;
+  --dark: #1a1a1a;
+  --light: #f4f4f4;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  background: linear-gradient(to right, #fff, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+}
+
+.canvas-wrapper {
+  height: 600px;
+  width: 100%;
+  background: radial-gradient(circle at center, rgba(196, 30, 58, 0.1) 0%, transparent 70%);
+  border-radius: 2rem;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.footer {
+  padding: 4rem 0;
+  background: #111;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  height: 60px;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+.footer-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}

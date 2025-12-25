@@ -1,0 +1,88 @@
+.about-section {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.experience-badge {
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    background: var(--primary);
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-align: center;
+    border: 4px solid var(--dark);
+    box-shadow: 0 10px 20px rgba(196, 30, 58, 0.4);
+}
+
+.subtitle {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.about-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+
+.about-content p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.achievement-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+    border-left: 4px solid var(--accent);
+}
+
+.achievement-card h4 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
