@@ -1,12 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import './App.css'
 import Hero from './components/Hero'
-import SantaCanvas from './components/SantaCanvas'
 import Countdown from './components/Countdown'
 import ProjectShowcase from './components/ProjectShowcase'
-import Gallery from './components/Gallery'
 import About from './components/About'
 import { motion } from 'framer-motion'
+
+// Lazy loaded components
+const SantaCanvas = lazy(() => import('./components/SantaCanvas'))
+const Gallery = lazy(() => import('./components/Gallery'))
+
+const LoadingSpinner = () => (
+    <div className="section-loading">
+        <div className="spinner"></div>
+        <p>Loading Experience...</p>
+    </div>
+)
 
 function App() {
     return (
@@ -25,14 +34,18 @@ function App() {
                         <p>Interactive 3D Preview of our masterpiece</p>
                     </div>
                     <div className="canvas-wrapper">
-                        <SantaCanvas />
+                        <Suspense fallback={<LoadingSpinner />}>
+                            <SantaCanvas />
+                        </Suspense>
                     </div>
                 </div>
             </section>
             <Countdown />
             <ProjectShowcase />
             <About />
-            <Gallery />
+            <Suspense fallback={<LoadingSpinner />}>
+                <Gallery />
+            </Suspense>
             <footer className="footer">
                 <div className="container">
                     <div className="footer-content">
